@@ -1,0 +1,10 @@
+#!/bin/bash
+
+sudo apt-get update
+sudo apt-get install python3-pip
+pip install smbus2 rpi-lcd
+sudo raspi-config # Enable I2C: Interface Options -> I2C
+python lcd_test.py
+
+# [FIXED] modprobe: FATAL: Module i2c-dev not found in directory /lib/modules/5.15.*
+sudo rpi-update
