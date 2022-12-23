@@ -1,6 +1,6 @@
 TOOLS := /usr/bin
-PREFIX := 
-KDIR := /lib/modules/$(shell uname -r)/source
+PREFIX := aarch64-linux-gnu-
+KDIR := /mnt/nfs_server/linux/5.15.84
 PWD := $(shell pwd)
 
 obj-m :=  lcdi2c.o
@@ -8,7 +8,7 @@ obj-m :=  lcdi2c.o
 all:
 	$(MAKE) -C $(KDIR) \
 		M=$(PWD) \
-		ARCH=arm CROSS_COMPILE=$(TOOLS)/$(PREFIX) \
+		ARCH=arm64 CROSS_COMPILE=$(TOOLS)/$(PREFIX) \
 		modules
 
 clean:
